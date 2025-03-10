@@ -1,0 +1,31 @@
+html, body
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #ffffff;
+    /* color: white; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container
+{
+    border: solid black 4px;
+    border-radius: 8px;
+    background-color: grey;
+    height: 500px;
+    width: 400px;
+    display: flex;
+}
+
+.screen
+{
+    border: solid white 1px;
+    border-style: 10px;
+    background-color: white;
+    width: 340px;
+    height: 100px;
+}
