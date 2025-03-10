@@ -5,7 +5,6 @@ html, body
     padding: 0;
     border: 0;
     background-color: #ffffff;
-    /* color: white; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,19 +12,56 @@ html, body
 
 .container
 {
+    padding: 10px;
     border: solid black 4px;
     border-radius: 8px;
     background-color: grey;
     height: 500px;
     width: 400px;
     display: flex;
+    flex-direction: column;
 }
 
 .screen
 {
     border: solid white 1px;
-    border-style: 10px;
+    border-radius: 8px;
     background-color: white;
-    width: 340px;
-    height: 100px;
+    flex: 1;
+}
+
+.keyboard-container
+{
+    flex: 5;
+    display: flex;
+}
+
+.numbers-keyboard
+{
+    flex: 3;
+    display: flex;   
+    padding: 6px;
+    gap: 2px;
+    flex-wrap: wrap;
+}
+
+.operations-keyboard
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    gap: 2px;
+}
+
+.number-key
+{
+    box-sizing: border-box;
+    flex: 1 1 25%;
+}
+
+.operation-key
+{
+    box-sizing: border-box;
+    flex: 1 1 0;
 }
