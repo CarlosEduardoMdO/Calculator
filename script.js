@@ -1,21 +1,33 @@
 function addition (a , b)
 {
-    return a + b;
+    return Number(a) + Number(b);
 }
 
 function subtraction (a , b)
 {
-    return a - b;
+    return Number(a) - Number(b);
 }
 
 function multiplication (a , b)
 {
-    return a * b;
+    return Number(a) * Number(b);
 }
 
 function division (a , b)
 {
-    return a / b;
+    return Number(a) / Number(b);
+}
+
+function addKeyToScreen (target)
+{
+    const num       = Number(target.textContent);
+
+    if(typeof num !== 'number' || isNaN(num)) return alert('Não é um valor numérico, insira um valor válido.');
+    
+    const screen    = document.getElementById('screen');
+    
+    // history.push(num);
+    screen.textContent = screen.textContent + num;
 }
 
 function NumberKey(keyNumber)
@@ -27,6 +39,9 @@ function NumberKey(keyNumber)
     button.style.backgroundColor    = 'black';
     button.style.color              = 'white';
     button.style.fontSize           = '24px';
+    button.addEventListener(
+        'click', event => addKeyToScreen(event.target)
+    );
     
     return button;
 }
@@ -47,6 +62,7 @@ function OperationKey(keyOperation)
 const numberKeyContainer    = document.getElementsByClassName('numbers-keyboard');
 const operationKeyContainer = document.getElementsByClassName('operations-keyboard');
 const operations            = ['-', '+', '÷', 'X'];
+const history               = [];
 
 for(i = 0; i <= 9; i++)
 {
