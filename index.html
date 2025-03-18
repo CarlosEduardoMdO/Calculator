@@ -27,6 +27,7 @@
             </div>
             <div class="operations-keyboard">
                 <button class="operation-key" id="clearKey">CLEAR</button>
+                <button class="operation-key" id="deleteKey">DELETE</button>
                 <button class="operation-key">+</button>
                 <button class="operation-key">-</button>
                 <button class="operation-key">*</button>
@@ -36,12 +37,15 @@
     </div>
     <script>
         const screen        = document.getElementById('screen');
+        const deleteKey     = document.getElementById('deleteKey');
         const clearKey      = document.getElementById('clearKey');
         const numberKeys    = Array.from(document.getElementsByClassName('number-key'));
-        const operationKeys = Array.from(document.getElementsByClassName('operation-key'));
+        const operationKeys = Array.from(document.getElementsByClassName('operation-key')).filter(element => element.id === '');
         const operateKey    = Array.from(document.getElementsByClassName('operate-key'));
+
+        document.addEventListener('keydown', event => keyboardSupport(event.key));
         
-        screen.textContent = '';
+        screen.textContent = '0 ✓ ';
 
         numberKeys.forEach(element => {
             element.addEventListener(
@@ -60,7 +64,11 @@
         );
 
         clearKey.addEventListener(
-            'click', () => screen.textContent = ''
+            'click', () => screen.textContent = '0 ✓ '
+        );
+
+        deleteKey.addEventListener(
+            'click', () => screen.textContent = screen.textContent[screen.textContent.length - 1] === ' ' ? screen.textContent.slice(0, -3) : screen.textContent.slice(0, -1)
         );
     </script>
     <script src="script.js"></script>
