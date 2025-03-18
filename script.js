@@ -1,23 +1,23 @@
 function add (a , b)
 {
-    return Number(Number(a) + Number(b)) % 1 === 0 ? Math.trunc(Number(a) + Number(b)) : (Number(a) + Number(b)).toFixed(3);
+    return Number(Number(a) + Number(b)) % 1 === 0 ? Math.trunc(Number(a) + Number(b)) : parseFloat((Number(a) + Number(b)).toFixed(3));
 }
 
 function subtract (a , b)
 {
-    return Number(Number(a) - Number(b)) % 1 === 0 ? Math.trunc(Number(a) - Number(b)) : (Number(a) - Number(b)).toFixed(3);
+    return Number(Number(a) - Number(b)) % 1 === 0 ? Math.trunc(Number(a) - Number(b)) : parseFloat((Number(a) - Number(b)).toFixed(3));
 }
 
 function multiply (a , b)
 {
-    return Number(Number(a) * Number(b)) % 1 === 0 ? Math.trunc(Number(a) * Number(b)) : Number(Number(a) * Number(b)).toFixed(3);
+    return Number(Number(a) * Number(b)) % 1 === 0 ? Math.trunc(Number(a) * Number(b)) : parseFloat(Number(Number(a) * Number(b)).toFixed(3));
 }
 
 function divide (a , b)
 {
     if (b == 0) throw Error("Division by zero is not allowed");
       
-    return Number(Number(a) / Number(b)) % 1 === 0 ? Math.trunc(Number(a) / Number(b)) : (Number(a) / Number(b)).toFixed(3);    
+    return Number(Number(a) / Number(b)) % 1 === 0 ? Math.trunc(Number(a) / Number(b)) : parseFloat((Number(a) / Number(b)).toFixed(3));    
 }
 
 function operate()
