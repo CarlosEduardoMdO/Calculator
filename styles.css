@@ -24,9 +24,14 @@ html, body
 
 .screen
 {
-    border: solid white 1px;
+    display: flex;
+    border: solid black 2px;
+    padding: 8px;
     border-radius: 8px;
     background-color: white;
+    align-items: center;
+    justify-content: end;
+    font-size:        32px;
     flex: 1;
 }
 
@@ -56,12 +61,27 @@ html, body
 
 .number-key
 {
-    box-sizing: border-box;
-    flex: 1 1 25%;
+    box-sizing:         border-box;
+    flex:               1 1 25%;
+    background-color:   black;
+    color:              white;
+    font-size:          24px;
+}
+
+.operate-key
+{
+    box-sizing:         border-box;
+    flex:               1 1 25%;
+    background-color:   black;
+    color:              white;
+    font-size:          24px;
 }
 
 .operation-key
 {
-    box-sizing: border-box;
-    flex: 1 1 0;
+    box-sizing:       border-box;
+    flex:             1 1 0;
+    background-color:#870000;
+    color:           #ffffff;
+    font-size:        18px;
 }

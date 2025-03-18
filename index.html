@@ -12,11 +12,57 @@
         </div>
         <div class="keyboard-container">
             <div class="numbers-keyboard">
+                <button class="number-key">0</button>
+                <button class="number-key">1</button>
+                <button class="number-key">2</button>
+                <button class="number-key">3</button>
+                <button class="number-key">4</button>
+                <button class="number-key">5</button>
+                <button class="number-key">6</button>
+                <button class="number-key">7</button>
+                <button class="number-key">8</button>
+                <button class="number-key">9</button>
+                <button class="number-key">.</button>
+                <button class="operate-key">=</button>
             </div>
             <div class="operations-keyboard">
+                <button class="operation-key" id="clearKey">CLEAR</button>
+                <button class="operation-key">+</button>
+                <button class="operation-key">-</button>
+                <button class="operation-key">*</button>
+                <button class="operation-key">÷</button>
             </div>
         </div>
     </div>
+    <script>
+        const screen        = document.getElementById('screen');
+        const clearKey      = document.getElementById('clearKey');
+        const numberKeys    = Array.from(document.getElementsByClassName('number-key'));
+        const operationKeys = Array.from(document.getElementsByClassName('operation-key'));
+        const operateKey    = Array.from(document.getElementsByClassName('operate-key'));
+        
+        screen.textContent = '';
+
+        numberKeys.forEach(element => {
+            element.addEventListener(
+                'click', event => addKeyToScreen(event.target, 'num')
+            );
+        });
+
+        operationKeys.forEach(element => {
+            element.addEventListener(
+                'click', event => addKeyToScreen(event.target, 'ope')
+            );
+        });
+
+        operateKey[0].addEventListener(
+            'click', () => operate()
+        );
+
+        clearKey.addEventListener(
+            'click', () => screen.textContent = ''
+        );
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

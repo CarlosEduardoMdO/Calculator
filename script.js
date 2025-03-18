@@ -1,99 +1,71 @@
-function addition (a , b)
+function add (a , b)
 {
     return Number(a) + Number(b);
 }
 
-function subtraction (a , b)
+function subtract (a , b)
 {
     return Number(a) - Number(b);
 }
 
-function multiplication (a , b)
+function multiply (a , b)
 {
     return Number(a) * Number(b);
 }
 
-function division (a , b)
+function divide (a , b)
 {
-    if(b == 0) return alert('Error: Division by zero');
-    
-    return Number(a) / Number(b);
+    if (b === 0) 
+    {
+        throw new Error("Division by zero is not allowed");
+    }
+      
+    return a / b;    
 }
 
-function operate(operation, num1, num2)
+function operate()
 {
-    switch (operation) {
+    const currentText   = screen.textContent.split(' ');
+    const operation     = currentText[1];
+    const num1          = currentText[0];
+    const num2          = currentText[2];
+
+    switch (operation) 
+    {
         case '+':
-            
+            screen.textContent = add(num1 , num2);
         break;
 
         case '-':
-            
-        break;
-
-        case '/':
-            
+            screen.textContent = subtract(num1 , num2);
         break;
 
         case '*':
-            
+            screen.textContent = multiply(num1 , num2);
+        break;
+
+        case '÷':
+            screen.textContent = divide(num1 , num2);
+        break;
+
+        default:
+          return alert('Erro: Operação Inválida.');
         break;
     }
 }
 
-function addKeyToScreen (target)
+function addKeyToScreen (target, type)
 {
-    const num       = Number(target.textContent);
+    if(type == 'num')
+    {    
+        const num = target.textContent == '.' ? target.textContent : Number(target.textContent);       
+        
+        screen.textContent = screen.textContent + num;
 
-    if(typeof num !== 'number' || isNaN(num)) return alert('Não é um valor numérico, insira um valor válido.');
-    
-    const screen    = document.getElementById('screen');
-    
-    screen.textContent = screen.textContent + num;
+    } else if(type == 'ope') {
+        
+        const operation    = target.textContent;      
+
+        screen.textContent = screen.textContent + ' ' + operation + ' ';
+    }
 }
-
-function NumberKey(keyNumber)
-{
-    const button = document.createElement('button');
-    
-    button.textContent              = keyNumber;
-    button.className                = 'number-key';
-    button.style.backgroundColor    = 'black';
-    button.style.color              = 'white';
-    button.style.fontSize           = '24px';
-    button.addEventListener(
-        'click', event => addKeyToScreen(event.target)
-    );
-    
-    return button;
-}
-
-function OperationKey(keyOperation)
-{
-    const button = document.createElement('button');
-    
-    button.textContent              = keyOperation;
-    button.className                = 'operation-key';
-    button.style.backgroundColor    = '#870000';
-    button.style.color              = 'white';
-    button.style.fontSize           = '24px';
-    
-    return button;
-}
-
-const numberKeyContainer    = document.getElementsByClassName('numbers-keyboard');
-const operationKeyContainer = document.getElementsByClassName('operations-keyboard');
-const operations            = ['-', '+', '÷', 'X'];
-const history               = [];
-
-for(i = 0; i <= 9; i++)
-{
-    numberKeyContainer[0].appendChild(NumberKey(i));
-}
-
-numberKeyContainer[0].appendChild(NumberKey('.'));
-numberKeyContainer[0].appendChild(NumberKey('='));
-
-operations.forEach(element => {
-    operationKeyContainer[0].appendChild(OperationKey(element))
-});
