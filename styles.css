@@ -1,87 +1,105 @@
-html, body
-{
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    border: 0;
-    background-color: #ffffff;
+    background-color: #f0f2f5;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container
-{
-    padding: 10px;
-    border: solid black 4px;
-    border-radius: 8px;
-    background-color: grey;
-    height: 500px;
+.container {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #2d2d2d;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     width: 400px;
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
-.screen
-{
+.screen {
+    border: 2px solid #404040;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #e8f5e9;
+    min-height: 80px;
     display: flex;
-    border: solid black 2px;
-    padding: 8px;
-    border-radius: 8px;
-    background-color: white;
     align-items: center;
-    justify-content: end;
-    font-size:        32px;
-    flex: 1;
+    justify-content: flex-end;
+    font-size: 48px;
+    color: #2d2d2d;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.keyboard-container
-{
-    flex: 5;
+.keyboard-container {
     display: flex;
+    gap: 10px;
 }
 
-.numbers-keyboard
-{
+.numbers-keyboard {
     flex: 3;
-    display: flex;   
-    padding: 6px;
-    gap: 2px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
 }
 
-.operations-keyboard
-{
+.operations-keyboard {
     flex: 1;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.number-key, .operate-key, .operation-key {
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
     display: flex;
-    flex-direction: column;
-    padding: 6px;
-    gap: 2px;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
 }
 
-.number-key
-{
-    box-sizing:         border-box;
-    flex:               1 1 25%;
-    background-color:   black;
-    color:              white;
-    font-size:          24px;
+.number-key {
+    background-color: #4f4f4f;
+    color: white;
+    font-size: 28px;
 }
 
-.operate-key
-{
-    box-sizing:         border-box;
-    flex:               1 1 25%;
-    background-color:   black;
-    color:              white;
-    font-size:          24px;
+.number-key:hover {
+    background-color: #666;
 }
 
-.operation-key
-{
-    box-sizing:       border-box;
-    flex:             1 1 0;
-    background-color:#870000;
-    color:           #ffffff;
-    font-size:        18px;
+.operate-key {
+    background-color: #ff9500;
+    color: white;
+    font-size: 32px;
+}
+
+.operate-key:hover {
+    background-color: #ffaa33;
+}
+
+.operation-key {
+    background-color: #ff3b30;
+    color: white;
+    font-size: 24px;
+}
+
+.operation-key:hover {
+    background-color: #ff4d44;
+}
+
+#clearKey, #deleteKey {
+    background-color: #a3a3a3;
+    font-size: 20px;
+}
+
+#clearKey:hover, #deleteKey:hover {
+    background-color: #b5b5b5;
 }
