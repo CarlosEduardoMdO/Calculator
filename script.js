@@ -66,6 +66,13 @@ function addKeyToScreen (target, type)
         
         const operation    = target.textContent;      
 
-        screen.textContent = screen.textContent + ' ' + operation + ' ';
+        if(screen.textContent.split(' ')[1] === undefined)
+        {
+            screen.textContent = screen.textContent + ' ' + operation + ' ';
+        } else {
+
+            operate();
+            screen.textContent = screen.textContent + ' ' + operation + ' ';
+        }
     }
 }
