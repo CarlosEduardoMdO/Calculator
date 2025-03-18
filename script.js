@@ -15,7 +15,30 @@ function multiplication (a , b)
 
 function division (a , b)
 {
+    if(b == 0) return alert('Error: Division by zero');
+    
     return Number(a) / Number(b);
+}
+
+function operate(operation, num1, num2)
+{
+    switch (operation) {
+        case '+':
+            
+        break;
+
+        case '-':
+            
+        break;
+
+        case '/':
+            
+        break;
+
+        case '*':
+            
+        break;
+    }
 }
 
 function addKeyToScreen (target)
@@ -26,7 +49,6 @@ function addKeyToScreen (target)
     
     const screen    = document.getElementById('screen');
     
-    // history.push(num);
     screen.textContent = screen.textContent + num;
 }
 
